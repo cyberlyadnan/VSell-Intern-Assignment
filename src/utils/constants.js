@@ -5,7 +5,14 @@ import bakeryAndSnacks from "../assets/images/food4.png";
 import dairyAndEggs from "../assets/images/food5.png";
 import beverages from "../assets/images/food6.png";
 
-export const NavLinks = ["Shop", "Explore", "Cart", "Favourite", "Account"];
+import StorefrontIcon from '@mui/icons-material/Storefront';
+import SearchIcon from '@mui/icons-material/Search';
+import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
+import FavoriteIcon from '@mui/icons-material/Favorite';
+import AccountCircleIcon from '@mui/icons-material/AccountCircle';
+
+
+export const NavLinks = ["Shop", "Explore", "Cart", "Favorite", "Account"];
 
 export const CardColors = [
     "#f0f4f8", // Light blue-gray
@@ -23,6 +30,7 @@ export const CardColors = [
 const getColor = () => {
     return Math.floor(Math.random() * CardColors.length) + 1
   }
+  
 export const FoodItems = [
   {
     name: "Fresh Fruits & Vegetables",
@@ -56,4 +64,13 @@ export const FoodItems = [
   },
 ];
 
+
+export const FooterLinks = [
+  { name: "Shop", icon: <StorefrontIcon /> },
+  { name: "Explore", icon: <SearchIcon /> },
+  { name: "Cart", icon: <ShoppingCartIcon /> },
+  { name: "Favorite", icon: <FavoriteIcon /> },
+  { name: "Account", icon: <AccountCircleIcon /> },
+];
   
+ 

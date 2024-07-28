@@ -16,9 +16,9 @@ const Header = () => {
           <ul className="flex gap-4">
             {NavLinks.map((LinkName, index) => (
               <li key={index} className="cursor-pointer text-xl font-semibold hover:text-blue-800">
-                {/* <Link to={`/${LinkName}`} > */}
+                <Link to={`/${LinkName}`} >
                 {LinkName}
-                {/* </Link> */}
+                </Link>
               </li>
             ))}
           </ul>
@@ -30,12 +30,12 @@ const Header = () => {
       <div className="flex justify-between items-center py-4 px-5 sm:px-7 md:hidden bg-white shadow-md">
       <h1 className="text-2xl font-bold">VSell</h1>
       <div className="hidden md:flex gap-5">
-        {/* <Link to="/shop" className="text-gray-700 hover:text-cyan-600">Shop</Link>
+        <Link to="/shop" className="text-gray-700 hover:text-cyan-600">Shop</Link>
         <Link to="/explore" className="text-gray-700 hover:text-cyan-600">Explore</Link>
         <Link to="/cart" className="text-gray-700 hover:text-cyan-600">Cart</Link>
         <Link to="/favourite" className="text-gray-700 hover:text-cyan-600">Favourite</Link>
-        <Link to="/account" className="text-gray-700 hover:text-cyan-600">Account</Link> */}
-        {NavLinks.map((link,index)=><div key={index} className="text-gray-700 hover:text-cyan-600">{link}</div>)}
+        <Link to="/account" className="text-gray-700 hover:text-cyan-600">Account</Link>
+        {NavLinks.map((link,index)=><Link to={`/${link}`} key={index} className="text-gray-700 hover:text-cyan-600">{link}</Link>)}
       </div>
       <div className="md:hidden">
         <MenuIcon fontSize="large" />
