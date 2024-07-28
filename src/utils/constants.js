@@ -11,6 +11,18 @@ import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import FavoriteIcon from '@mui/icons-material/Favorite';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 
+import Spinach from "../assets/Cart/1.jpg"
+import Carrots from "../assets/Cart/2.jpg"
+import Peppers from "../assets/Cart/3.jpg"
+import Broccoli from "../assets/Cart/4.jpg"
+import Tomatoes from "../assets/Cart/5.jpg"
+import Strawberries from "../assets/Cart/6.jpg"
+import Bananas from "../assets/Cart/7.jpg"
+import Wheat from "../assets/Cart/8.jpg"
+import Milk from "../assets/Cart/9.jpg"
+
+
+
 
 export const NavLinks = ["Shop", "Explore", "Cart", "Favorite", "Account"];
 
@@ -73,4 +85,71 @@ export const FooterLinks = [
   { name: "Account", icon: <AccountCircleIcon /> },
 ];
   
- 
+
+
+export const cartItems = [
+  {
+    id: 1,
+    name: "Fresh Spinach",
+    image: Spinach,
+    price: 2.99,
+    quantity: 2,
+  },
+  {
+    id: 2,
+    name: "Organic Carrots",
+    image: Carrots,
+    price: 1.99,
+    quantity: 3,
+  },
+  {
+    id: 3,
+    name: "Red Bell Peppers",
+    image: Peppers,
+    price: 0.99,
+    quantity: 5,
+  },
+  {
+    id: 4,
+    name: "Fresh Broccoli",
+    image: Broccoli,
+    price: 1.49,
+    quantity: 4,
+  },
+  {
+    id: 5,
+    name: "Organic Tomatoes",
+    image: Tomatoes,
+    price: 3.49,
+    quantity: 2,
+  },
+];
+
+
+
+export const favoritesItems = [
+  {
+    id: 1,
+    name: 'Fresh Strawberries',
+    image: Strawberries,
+    price: '$4.99',
+  },
+  {
+    id: 2,
+    name: 'Organic Bananas',
+    image: Bananas,
+    price: '$2.99',
+  },
+  {
+    id: 3,
+    name: 'Whole Wheat Bread',
+    image: Wheat,
+    price: '$3.49',
+  },
+  {
+    id: 4,
+    name: 'Almond Milk',
+    image: Milk,
+    price: '$5.49',
+  },
+];
