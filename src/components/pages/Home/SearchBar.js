@@ -29,11 +29,11 @@ const SearchBar = ({ originalItems, setfilteredCard }) => {
     }
   };
 
-  
+
 
   return (
     <div className="flex flex-col items-center font-sans p-4">
-      <h1 className="md:text-2xl text-xl font-bold">Find Products</h1>
+      <h1 className="text-2xl md:text-3xl lg:text-4xl font-bold mb-6 mt-3 text-center text-gray-800">Find Products</h1>
       <div className="relative mt-4 w-full md:w-7/12 lg:w-8/12">
         <input
           type="text"

@@ -29,8 +29,7 @@ const Cart = () => {
 
   return (
     <div className="p-4 md:p-8 lg:p-12 bg-zinc-100 min-h-screen">
-      {/* Cart Title */}
-      <h1 className="text-2xl md:text-3xl lg:text-4xl font-bold mb-6 text-center text-gray-800">Shopping Cart</h1>
+      <h1 className="text-2xl md:text-3xl lg:text-4xl font-bold mb-6 mt-3 text-center text-gray-800">Shopping Cart</h1>
       <div className="flex flex-col lg:flex-row gap-8">
         {/* Cart Items List */}
         <div className="w-full lg:w-3/4">

@@ -2,9 +2,9 @@ import React from "react";
 import { FooterLinks } from "../utils/constants";
 import { Link, NavLink } from "react-router-dom";
 import FacebookIcon from "@mui/icons-material/Facebook";
-import TwitterIcon from "@mui/icons-material/Twitter";
 import GitHubIcon from "@mui/icons-material/GitHub";
 import InstagramIcon from "@mui/icons-material/Instagram";
+import { LinkedIn } from "@mui/icons-material";
 
 const Footer = () => {
   return (
@@ -14,7 +14,7 @@ const Footer = () => {
         <div className="mx-auto w-full max-w-screen-xl p-6 py-6 lg:py-8">
           <div className="md:flex md:justify-between">
             <div className="mb-6 md:mb-0">
-              <Link to="https://flowbite.com/" className="flex items-center">
+              <Link to="/" className="flex items-center">
                 <span className="self-center text-5xl font-semibold whitespace-nowrap dark:text-white">
                   VSell
                 </span>
@@ -45,7 +45,7 @@ const Footer = () => {
                 <ul className="text-gray-500 dark:text-gray-400 font-medium">
                   <li className="mb-4">
                     <Link
-                      to="https://github.com/themesberg/flowbite"
+                      to="https://github.com/cyberlyadnan/VSell-Intern-Assignment.git"
                       className="hover:underline "
                     >
                       Github
@@ -53,10 +53,10 @@ const Footer = () => {
                   </li>
                   <li>
                     <Link
-                      to="https://discord.gg/4eeurUVvTy"
+                      to="https://my-portfolio-7c5de.web.app/"
                       className="hover:underline"
                     >
-                      Discord
+                      Portfolio
                     </Link>
                   </li>
                 </ul>
@@ -84,39 +84,39 @@ const Footer = () => {
           <div className="sm:flex sm:items-center sm:justify-between">
             <span className="text-sm text-gray-500 sm:text-center dark:text-gray-400">
               © 2023{" "}
-              <Link to="https://flowbite.com/" className="hover:underline">
+              <Link to="/" className="hover:underline">
                 VSell™
               </Link>
               . All Rights Reserved.
             </span>
             <div className="flex mt-4 sm:justify-center sm:mt-0">
               <Link
-                to="#"
+                to="https://www.linkedin.com/in/adnanahmad9334/"
                 className="text-gray-500 hover:text-gray-900 dark:hover:text-white ms-5"
               >
-                <FacebookIcon />
-                <span className="sr-only">Discord community</span>
-              </Link>
-              <Link
-                to="#"
-                className="text-gray-500 hover:text-gray-900 dark:hover:text-white ms-5"
-              >
-                <TwitterIcon />
+                <LinkedIn />
                 <span className="sr-only">Twitter page</span>
               </Link>
               <Link
-                to="#"
+                to="https://github.com/cyberlyadnan"
+                className="text-gray-500 hover:text-gray-900 dark:hover:text-white ms-5"
+              >
+                <GitHubIcon />
+                <span className="sr-only">Dribbble account</span>
+              </Link>
+              <Link
+                to="https://www.instagram.com/cyberlyadnan/"
                 className="text-gray-500 hover:text-gray-900 dark:hover:text-white ms-5"
               >
                 <InstagramIcon />
                 <span className="sr-only">GitHub account</span>
               </Link>
               <Link
-                to="#"
+                to="https://www.facebook.com/profile.php?id=100013233873188"
                 className="text-gray-500 hover:text-gray-900 dark:hover:text-white ms-5"
               >
-                <GitHubIcon />
-                <span className="sr-only">Dribbble account</span>
+                <FacebookIcon />
+                <span className="sr-only">Discord community</span>
               </Link>
             </div>
           </div>

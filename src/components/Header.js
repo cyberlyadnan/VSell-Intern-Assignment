@@ -14,7 +14,7 @@ const Header = () => {
   return (
     <>
       {/* Header for the desktop */}
-      <div className="hidden md:flex justify-between items-center py-5 px-5 lg:px-16 bg-white shadow-md">
+      <div className="hidden md:flex justify-between items-center py-5 px-5 lg:px-16 bg-white drop-shadow-lg">
         <div>
           <Link to="/"><h1 className="text-2xl font-bold text-gray-800">VSell</h1></Link>
         </div>
@@ -33,7 +33,7 @@ const Header = () => {
 
       {/* Header for the mobile */}
       <div className="flex justify-between items-center py-4 px-5 sm:px-7 md:hidden bg-white shadow-md">
-        <h1 className="text-2xl font-bold text-gray-800">VSell</h1>
+        <Link to="/"><h1 className="text-2xl font-bold text-gray-800">VSell</h1></Link>
         <div className="md:hidden" onClick={toggleMenu}>
           {isMenuOpen ? <CloseIcon fontSize="large" /> : <MenuIcon fontSize="large" />}
         </div>
