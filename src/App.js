@@ -4,30 +4,30 @@ import Header from './components/Header';
 import Footer from './components/Footer';
 import Loader from './components/Helper Components/Loader';
 import Error from './components/pages/Error/Error';
-import { ToastContainer} from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import Notification from './components/Helper Components/Notification';
 
-// Lazy load the page components
+// Lazy load the page components for better performance
 const Main = lazy(() => import('./components/pages/Home/Main'));
 const Shop = lazy(() => import('./components/pages/Shop/Shop'));
 const Cart = lazy(() => import('./components/pages/Cart/Cart'));
 const Favorite = lazy(() => import('./components/pages/Favorite/Favorite'));
 const Account = lazy(() => import('./components/pages/Account/Account'));
 
-// Define the routes using createBrowserRouter
+// Define routes and their associated components
 const RouterList = createBrowserRouter([
   {
     path: '/',
     element: (
       <>
-        <Header />
-        <Suspense fallback={<Loader />}>
-          <Outlet />
+        <Header /> {/* Common header for all pages */}
+        <Suspense fallback={<Loader />}> {/* Loader while components are loading */}
+          <Outlet /> {/* Renders the matched child route */}
         </Suspense>
-        <Footer />
+        <Footer /> {/* Common footer for all pages */}
       </>
     ),
-    errorElement: <Error />,
+    errorElement: <Error />, // Error page for undefined routes
     children: [
       { path: '/', element: <Main /> },
       { path: '/shop', element: <Shop /> },
@@ -40,20 +40,18 @@ const RouterList = createBrowserRouter([
 ]);
 
 const App = () => {
-  // State to manage loading status
   const [loading, setLoading] = useState(true);
 
-  // useEffect to handle the loading timer
+  // Simulate loading delay
   useEffect(() => {
     const timer = setTimeout(() => {
       setLoading(false);
     }, 1000);
 
-    // Cleanup timer on component unmount
-    return () => clearTimeout(timer);
+    return () => clearTimeout(timer); // Cleanup timer on unmount
   }, []);
 
-  // Render loader if still loading
+  // Show loader while loading
   if (loading) {
     return <Loader />;
   }
@@ -61,8 +59,8 @@ const App = () => {
   // Render the main app content
   return (
     <>
-      <RouterProvider router={RouterList} />
-      <ToastContainer position="bottom-right" autoClose={500} hideProgressBar={false} newestOnTop={false} closeOnClick rtl={false} pauseOnFocusLoss draggable pauseOnHover />
+      <RouterProvider router={RouterList} /> {/* Router provider to manage routes */}
+      <Notification />
     </>
   );
 };
