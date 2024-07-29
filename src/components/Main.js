@@ -10,7 +10,7 @@ const Main = () => {
   return (
     <>
       <SearchBar originalItems={FoodItems} setfilteredCard={setfilteredCard} />
-      <div className="font-sans flex flex-wrap lg:gap-4 gap-4 p-4 justify-center lg:px-36">
+      <div className="font-sans flex flex-wrap lg:gap-4 gap-4 p-4 justify-center lg:px-36 mb-12">
         {filteredCard.length > 0 ? (
           filteredCard?.map((item, index) => <Card key={index} props={item} />)
         ) : (

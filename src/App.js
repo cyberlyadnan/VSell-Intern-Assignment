@@ -1,14 +1,18 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, Suspense, lazy } from 'react';
 import { createBrowserRouter, RouterProvider, Outlet } from 'react-router-dom';
 import Header from './components/Header';
 import Footer from './components/Footer';
 import Loader from './components/Loader';
-import Error from './components/pages/Error';
-import Main from './components/Main';
-import Shop from './components/pages/Shop';
-import Cart from './components/pages/Cart';
-import Favorite from './components/pages/Favorite';
-import Account from './components/pages/Account';
+import Error from './components/pages/Error/Error';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
+// Lazy load the page components
+const Main = lazy(() => import('./components/Main'));
+const Shop = lazy(() => import('./components/pages/Shop/Shop'));
+const Cart = lazy(() => import('./components/pages/Cart/Cart'));
+const Favorite = lazy(() => import('./components/pages/Favorite/Favorite'));
+const Account = lazy(() => import('./components/pages/Account/Account'));
 
 // Define the routes using createBrowserRouter
 const RouterList = createBrowserRouter([
@@ -17,7 +21,9 @@ const RouterList = createBrowserRouter([
     element: (
       <>
         <Header />
-        <Outlet />
+        <Suspense fallback={<Loader />}>
+          <Outlet />
+        </Suspense>
         <Footer />
       </>
     ),
@@ -47,13 +53,23 @@ const App = () => {
     return () => clearTimeout(timer);
   }, []);
 
+  // Function to show a toast notification
+  const notify = (message) => {
+    toast(message);
+  };
+
   // Render loader if still loading
   if (loading) {
     return <Loader />;
   }
 
   // Render the main app content
-  return <RouterProvider router={RouterList} />;
+  return (
+    <>
+      <RouterProvider router={RouterList} />
+      <ToastContainer position="bottom-right" autoClose={500} hideProgressBar={false} newestOnTop={false} closeOnClick rtl={false} pauseOnFocusLoss draggable pauseOnHover />
+    </>
+  );
 };
 
 export default App;

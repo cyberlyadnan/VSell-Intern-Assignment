@@ -1,12 +1,25 @@
-import React from 'react';
-import { cartItems } from '../../utils/constants';
+import React, { useState, useEffect } from 'react';
 import CartItem from './CartItem';
 
-// Sample demo data
-
 const Cart = () => {
+  const [cartItems, setCartItems] = useState([]);
+
+  useEffect(() => {
+    // Fetch items from local storage
+    const items = JSON.parse(localStorage.getItem('cartItems')) || [];
+    setCartItems(items);
+  }, []);
+
+  const handleRemove = (name) => {
+    // Filter out the item to be removed
+    const updatedItems = cartItems.filter(item => item.name !== name);
+    setCartItems(updatedItems);
+    // Update local storage
+    localStorage.setItem('cartItems', JSON.stringify(updatedItems));
+  };
+
   const calculateTotal = () => {
-    return cartItems.reduce((total, item) => total + item.price * item.quantity, 0).toFixed(2);
+    return cartItems.reduce((total, item) => total + parseFloat(item.price.replace(/[^0-9.-]+/g, '')), 0).toFixed(2);
   };
 
   return (
@@ -14,9 +27,13 @@ const Cart = () => {
       <h1 className="text-2xl md:text-3xl lg:text-4xl font-bold mb-6 text-center text-gray-800">Shopping Cart</h1>
       <div className="flex flex-col lg:flex-row gap-8">
         <div className="w-full lg:w-3/4">
-          {cartItems.map((props,index) => (
-            <CartItem key={index} props={props}/>
-          ))}
+          {cartItems.length > 0 ? (
+            cartItems.map((item) => (
+              <CartItem key={item.id} props={item} onRemove={handleRemove} />
+            ))
+          ) : (
+            <p className="text-center text-gray-600">Your cart is empty</p>
+          )}
         </div>
         <div className="w-full lg:w-1/4 p-6 bg-white rounded-lg shadow-lg mb-20">
           <h2 className="text-xl font-semibold mb-4 text-gray-800">Summary</h2>
