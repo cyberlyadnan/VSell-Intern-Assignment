@@ -12,7 +12,7 @@ const CartItem = ({ props, onRemove }) => {
         alt={name}
         className="w-24 h-24 md:w-32 md:h-32 object-cover rounded-lg"
       />
-      <div className="flex flex-col md:flex-row justify-between w-full md:ml-4 ml-4 gap-4">
+      <div className="flex flex-row md:flex-row justify-between w-full md:ml-4 ml-4 gap-4">
         <div className="flex flex-col">
           <h2 className="text-lg md:text-xl font-semibold text-gray-800">
             {name}
@@ -28,7 +28,7 @@ const CartItem = ({ props, onRemove }) => {
             readOnly
           />
         </div>
-        <div className="">
+        <div className="flex justify-center items-center">
           <IconButton
             aria-label="remove"
             onClick={() => onRemove(name)} // Pass name to remove function

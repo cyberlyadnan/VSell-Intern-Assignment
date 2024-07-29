@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import Card from "./Card";
-import { FoodItems } from "../utils/constants";
+import { FoodItems } from "../../../utils/constants";
 import SearchBar from "./SearchBar";
-import errorSearch from "../assets/search-error.png";
+import errorSearch from "../../../assets/search-error.png";
 
 const Main = () => {
   const [filteredCard, setfilteredCard] = useState(FoodItems);

@@ -2,13 +2,13 @@ import React, { useEffect, useState, Suspense, lazy } from 'react';
 import { createBrowserRouter, RouterProvider, Outlet } from 'react-router-dom';
 import Header from './components/Header';
 import Footer from './components/Footer';
-import Loader from './components/Loader';
+import Loader from './components/Helper Components/Loader';
 import Error from './components/pages/Error/Error';
-import { ToastContainer, toast } from 'react-toastify';
+import { ToastContainer} from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 // Lazy load the page components
-const Main = lazy(() => import('./components/Main'));
+const Main = lazy(() => import('./components/pages/Home/Main'));
 const Shop = lazy(() => import('./components/pages/Shop/Shop'));
 const Cart = lazy(() => import('./components/pages/Cart/Cart'));
 const Favorite = lazy(() => import('./components/pages/Favorite/Favorite'));
@@ -47,16 +47,11 @@ const App = () => {
   useEffect(() => {
     const timer = setTimeout(() => {
       setLoading(false);
-    }, 1500);
+    }, 1000);
 
     // Cleanup timer on component unmount
     return () => clearTimeout(timer);
   }, []);
-
-  // Function to show a toast notification
-  const notify = (message) => {
-    toast(message);
-  };
 
   // Render loader if still loading
   if (loading) {
